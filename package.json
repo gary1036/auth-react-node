@@ -1,0 +1,17 @@
+{
+  "name": "auth-react-node",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev:api": "npm run dev -w @auth/api",
+    "dev:web": "npm run dev -w @auth/web",
+    "lint": "npm run lint -w @auth/api && npm run lint -w @auth/web",
+    "format": "npm run format -w @auth/api && npm run format -w @auth/web",
+    "build": "npm run build -w @auth/api && npm run build -w @auth/web"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

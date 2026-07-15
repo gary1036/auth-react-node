@@ -1,0 +1,64 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-auth}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-auth}
+      POSTGRES_DB: ${POSTGRES_DB:-auth_db}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-auth} -d ${POSTGRES_DB:-auth_db}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  api:
+    build:
+      context: ./apps/api
+      dockerfile: Dockerfile
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql://auth:auth@db:5432/auth_db?schema=public
+      CORS_ORIGIN: http://localhost:5173
+      GOOGLE_REDIRECT_URI: http://localhost:3000/api/v1/auth/oauth/google/callback
+      OIDC_FRONTEND_CALLBACK: http://localhost:5173/oauth/callback
+      OPENWEATHER_API_KEY: ${OPENWEATHER_API_KEY:-}
+      OPENWEATHER_BASE_URL: ${OPENWEATHER_BASE_URL:-https://api.openweathermap.org}
+      API_HOT_RELOAD: "1"
+      CHOKIDAR_USEPOLLING: "true"
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./apps/api/src:/app/src
+      - ./apps/api/prisma:/app/prisma
+
+  web:
+    build:
+      context: ./apps/web
+      dockerfile: Dockerfile
+      target: dev
+    environment:
+      VITE_API_BASE_URL: /api/v1
+      VITE_PROXY_TARGET: http://api:3000
+      VITE_HMR_CLIENT_PORT: "5173"
+      CHOKIDAR_USEPOLLING: "true"
+    depends_on:
+      - api
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./apps/web/src:/app/src
+      - ./apps/web/index.html:/app/index.html
+      - ./apps/web/vite.config.ts:/app/vite.config.ts
+      - ./apps/web/tsconfig.json:/app/tsconfig.json
+      - ./apps/web/tsconfig.app.json:/app/tsconfig.app.json
+      - ./apps/web/tsconfig.node.json:/app/tsconfig.node.json
+
+volumes:
+  pgdata:
