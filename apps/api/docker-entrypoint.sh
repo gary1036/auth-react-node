@@ -2,10 +2,8 @@
 set -e
 
 echo "Waiting for database..."
-if ! npx prisma db push --skip-generate --accept-data-loss; then
-  echo "Schema push failed (likely required columns on existing rows). Resetting database..."
-  npx prisma db push --skip-generate --force-reset
-fi
+echo "Applying migrations..."
+npx prisma migrate deploy
 echo "Seeding demo user..."
 npx tsx prisma/seed.ts || true
 

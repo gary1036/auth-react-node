@@ -1,0 +1,7 @@
+model OAuthState {
+  id           String   @id @default(cuid())
+  state        String   @unique
+  codeVerifier String
+  expiresAt    DateTime
+  createdAt    DateTime @default(now())
+}

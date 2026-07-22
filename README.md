@@ -64,9 +64,18 @@ API (`DATABASE_URL=postgresql://auth:auth@localhost:5432/auth_db?schema=public`)
 ```bash
 cd apps/api
 npm install
-npx prisma db push
+npx prisma migrate deploy   # apply migrations
 npm run db:seed
 npm run dev
+```
+
+Schema is split across `prisma/schema.prisma` (generator/datasource) and `prisma/models/*.prisma`.  
+New schema changes: `npm run prisma:migrate:dev -- --name <change_name>`.
+
+If you previously used `db push` and migrate fails on an existing database, baseline once:
+
+```bash
+npx prisma migrate resolve --applied 20260722100000_init
 ```
 
 Web:
