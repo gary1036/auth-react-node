@@ -18,7 +18,7 @@ export function DashboardPage() {
   return (
     <AppShell
       title="Dashboard"
-      subtitle={`Welcome${user?.name ? `, ${user.name}` : ''}. System overview for admins.`}
+      subtitle={`Welcome${user?.name ? `, ${user.name}` : ''}. Live account overview.`}
     >
       {statsQuery.isLoading ? (
         <section className="panel stretch">

@@ -19,7 +19,7 @@ export function AppShell({
     <main className="page app-shell">
       <header className="app-chrome">
         <div className="app-chrome-brand">
-          <p className="brand">Auth Lab</p>
+          <p className="brand brand-mark">Auth Lab</p>
           <nav className="app-nav" aria-label="Main">
             {items.map((item) => (
               <NavLink

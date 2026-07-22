@@ -12,7 +12,7 @@ export function ForbiddenPage() {
   return (
     <main className="page center">
       <section className="panel narrow">
-        <p className="brand">Auth Lab</p>
+        <p className="brand brand-mark">Auth Lab</p>
         <h1>403 Forbidden</h1>
         <p className="muted">
           You do not have permission to access{from ? ` ${from}` : ' this page'}.

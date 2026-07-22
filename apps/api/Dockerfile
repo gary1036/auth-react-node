@@ -5,6 +5,10 @@ RUN npm install
 
 FROM node:22-alpine AS build
 WORKDIR /app
+# prisma generate loads prisma.config.ts, which requires DATABASE_URL
+# (no live DB connection needed at build time)
+ARG DATABASE_URL=postgresql://auth:auth@db:5432/auth_db?schema=public
+ENV DATABASE_URL=$DATABASE_URL
 COPY --from=deps /app/node_modules ./node_modules
 COPY package.json tsconfig.json tsconfig.build.json prisma.config.ts ./
 COPY prisma ./prisma

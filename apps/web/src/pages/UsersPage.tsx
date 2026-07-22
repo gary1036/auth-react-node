@@ -93,7 +93,7 @@ export function UsersPage() {
   }
 
   return (
-    <AppShell title="User Management" subtitle="Search, edit, and activate or deactivate users.">
+    <AppShell title="Users" subtitle="Search, edit, and activate or deactivate accounts.">
       <section className="panel stretch users-toolbar">
         <label>
           Search

@@ -41,7 +41,7 @@ export function OAuthCallbackPage() {
   return (
     <main className="page center">
       <section className="panel narrow">
-        <p className="brand">Auth Lab</p>
+        <p className="brand brand-mark">Auth Lab</p>
         <h1>Google OIDC</h1>
         <p className={failed ? 'error' : 'muted'}>{message}</p>
         {failed ? (

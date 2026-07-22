@@ -47,9 +47,9 @@ export function LoginPage() {
   return (
     <main className="page auth-page">
       <section className="panel">
-        <p className="brand">Auth Lab</p>
+        <p className="brand brand-mark">Auth Lab</p>
         <h1>Sign in</h1>
-        <p className="muted">JWT, Basic Auth, or Google OIDC.</p>
+        <p className="muted">JWT, Basic Auth, or Google OIDC — one place to try them.</p>
 
         <form className="stack" onSubmit={onSubmit}>
           <label>

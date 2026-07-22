@@ -1,0 +1,52 @@
+{
+  "meta": {
+    "name": "Auth Lab",
+    "source": "apps/web/src/styles.css",
+    "theme": "soft-gray",
+    "generated": "2026-07-22"
+  },
+  "primitive": {
+    "color": {
+      "zinc-600": "#52525B",
+      "zinc-500": "#71717A",
+      "zinc-700": "#3F3F46",
+      "zinc-100": "#F4F4F5",
+      "zinc-800": "#27272A",
+      "white": "#FFFFFF",
+      "zinc-200": "#E4E4E7",
+      "zinc-300": "#D4D4D8",
+      "red-600": "#DC2626"
+    },
+    "space": {
+      "xs": "4px",
+      "sm": "8px",
+      "md": "16px",
+      "lg": "24px",
+      "xl": "32px",
+      "2xl": "48px",
+      "3xl": "64px"
+    },
+    "radius": {
+      "sm": "8px",
+      "md": "12px",
+      "lg": "16px"
+    },
+    "font": {
+      "sans": "Plus Jakarta Sans"
+    }
+  },
+  "semantic": {
+    "color": {
+      "primary": "{primitive.color.zinc-600}",
+      "on-primary": "{primitive.color.white}",
+      "secondary": "{primitive.color.zinc-500}",
+      "accent": "{primitive.color.zinc-700}",
+      "background": "{primitive.color.zinc-100}",
+      "foreground": "{primitive.color.zinc-800}",
+      "muted": "{primitive.color.zinc-200}",
+      "border": "{primitive.color.zinc-300}",
+      "destructive": "{primitive.color.red-600}",
+      "ring": "{primitive.color.zinc-600}"
+    }
+  }
+}

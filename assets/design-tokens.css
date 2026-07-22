@@ -1,0 +1,14 @@
+/* Soft gray theme tokens — consumed by apps/web/src/styles.css */
+:root {
+  --color-primary: #52525b;
+  --color-on-primary: #fafafa;
+  --color-secondary: #71717a;
+  --color-accent: #3f3f46;
+  --color-background: #f4f4f5;
+  --color-foreground: #27272a;
+  --color-muted: #e4e4e7;
+  --color-border: #d4d4d8;
+  --color-destructive: #dc2626;
+  --color-ring: #52525b;
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+}

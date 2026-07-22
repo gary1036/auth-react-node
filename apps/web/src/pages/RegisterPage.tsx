@@ -33,9 +33,9 @@ export function RegisterPage() {
   return (
     <main className="page auth-page">
       <section className="panel">
-        <p className="brand">Auth Lab</p>
+        <p className="brand brand-mark">Auth Lab</p>
         <h1>Create account</h1>
-        <p className="muted">Registers locally and returns JWT access + refresh tokens.</p>
+        <p className="muted">Local registration returns JWT access and refresh tokens.</p>
 
         <form className="stack" onSubmit={onSubmit}>
           <label>

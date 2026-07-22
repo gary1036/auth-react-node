@@ -36,7 +36,7 @@ export function WeatherMetrics({ weather }: { weather: WeatherBundle }) {
 
   return (
     <section className="weather-metrics panel stretch">
-      <h2>Details</h2>
+      <h2>Conditions</h2>
       <div className="metrics-grid">
         {items.map((item) => (
           <div key={item.label} className="metric-item">

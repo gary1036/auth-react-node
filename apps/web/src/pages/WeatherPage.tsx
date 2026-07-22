@@ -28,7 +28,7 @@ export function WeatherPage() {
     <WeatherThemeShell condition={data?.current.conditionGroup} isDay={data?.current.isDay}>
       <AppShell
         title="Weather"
-        subtitle="Live conditions via OpenWeatherMap (proxy). Use locate or search."
+        subtitle="Live conditions — locate yourself or search a place."
       >
         <section className="panel stretch weather-toolbar">
           <WeatherSearch onSelect={onSelectSuggestion} />
